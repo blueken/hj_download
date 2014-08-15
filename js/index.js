@@ -17,9 +17,28 @@ $(window).bind("load", function() {
 });
 function showAppInfo() {
 	judgeType();
-	$(".app").addClass("hidden");
-	$(".app").eq(g_down_type).removeClass("hidden");
+	// $(".app").addClass("hidden");
+	if (g_prev_type != g_curr_type) {
+		faceOut($(".app").eq(g_prev_type));
+		faceIn($(".app").eq(g_curr_type));
+	} else {
+		$(".app").eq(g_curr_type).removeClass("hidden");
+	}
+	
+	
+	
 }
+function faceIn(jqobj) {
+	jqobj.removeClass("hidden").css("opacity","0.1");
+	setTimeout(function() {
+		jqobj.css({"opacity":1, "transition":"1s"});
+	}, 100);
+	// jqobj.css({"opacity":1, "transition":"1s"});
+}
+function faceOut(jqobj) {
+	jqobj.css({"opacity":0, "transition":"1s"});
+}
+
 
 function addHeaderTagLogic() {
 	
@@ -27,20 +46,22 @@ function addHeaderTagLogic() {
 		$("header li").removeClass("active");
 		$(this).parent().addClass("active");
 		var idx = $(this).parent().index();
-		
-		g_down_type = idx;
+		g_prev_type = g_curr_type;
+		g_curr_type = idx;
 		showAppInfo();
 
 	});
 }
 function addArrowLogic() {
 	$(".next").click(function() {
-		g_down_type += 1;
+		g_prev_type = g_curr_type;
+		g_curr_type += 1;
 		changeTag();
 		showAppInfo();
 	});
 	$(".prev").click(function() {
-		g_down_type -= 1;
+		g_prev_type = g_curr_type;
+		g_curr_type -= 1;
 		changeTag();
 		showAppInfo();
 	});
@@ -50,10 +71,10 @@ function addArrowLogic() {
 }
 function judgeType() {
 	var total = 5;
-	if (g_down_type > 0) {
-		g_down_type = g_down_type % total;
-	} else if (g_down_type < 0) {
-		g_down_type += total;
+	if (g_curr_type > 0) {
+		g_curr_type = g_curr_type % total;
+	} else if (g_curr_type < 0) {
+		g_curr_type += total;
 	};
 }
 function getParameterByName(name) {
@@ -64,7 +85,7 @@ function getParameterByName(name) {
 }
 
 function initTag() {
-	var t = (typeof(g_down_type)==="undefined") ? getParameterByName("t") : g_down_type;
+	var t = (typeof(g_curr_type)==="undefined") ? getParameterByName("t") : g_curr_type;
 	if ((typeof(t) === "undefined") || ($.trim(t) === "") ) {
 		t = "0";
 	} else if ( t === "0") {
@@ -78,12 +99,13 @@ function initTag() {
 	} else if ( t === "4") {
 		hideHeader();
 	}
-	window.g_down_type = parseInt(t);
+	window.g_curr_type = parseInt(t);
+	window.g_prev_type = window.g_curr_type;
 }
 function changeTag() {
 	judgeType();
 	$("header li").removeClass("active");
-	$("header li").eq(g_down_type).addClass("active");
+	$("header li").eq(g_curr_type).addClass("active");
 }
 function hideHeader() {
 	$("header").hide();
