@@ -3,13 +3,16 @@ html {
 	background-size: cover;
 	font-family: "Times New Roman", "Microsoft YaHei", "SimSun";
 	color: white;
+	overflow: hidden;
 }
 .hidden {
 	position: absolute;
 	clip: rect(1px 1px 1px 1px);
 	clip: rect(1px, 1px, 1px, 1px);
 }
-
+.none {
+	display: none;
+}
 header {
 	position: absolute;
 	width: 100%;

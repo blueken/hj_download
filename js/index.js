@@ -1,5 +1,8 @@
 $(function() {
-
+	initTag();
+	showAppInfo();
+	addHeaderTagLogic();
+	addArrowLogic();
 });
 
 $(window).bind("load", function() {
@@ -12,6 +15,87 @@ $(window).bind("load", function() {
 	hmu.overSlide($("header ul"));
 
 });
+function showAppInfo() {
+	judgeType();
+	$(".app").addClass("hidden");
+	$(".app").eq(g_down_type).removeClass("hidden");
+}
+
+function addHeaderTagLogic() {
+	
+	$("header a").bind("click", function() {
+		$("header li").removeClass("active");
+		$(this).parent().addClass("active");
+		var idx = $(this).parent().index();
+		
+		g_down_type = idx;
+		showAppInfo();
+
+	});
+}
+function addArrowLogic() {
+	$(".next").click(function() {
+		g_down_type += 1;
+		changeTag();
+		showAppInfo();
+	});
+	$(".prev").click(function() {
+		g_down_type -= 1;
+		changeTag();
+		showAppInfo();
+	});
+
+
+
+}
+function judgeType() {
+	var total = 5;
+	if (g_down_type > 0) {
+		g_down_type = g_down_type % total;
+	} else if (g_down_type < 0) {
+		g_down_type += total;
+	};
+}
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function initTag() {
+	var t = (typeof(g_down_type)==="undefined") ? getParameterByName("t") : g_down_type;
+	if ((typeof(t) === "undefined") || ($.trim(t) === "") ) {
+		t = "0";
+	} else if ( t === "0") {
+		hideHeader();
+	} else if ( t === "1") {
+		hideHeader();
+	} else if ( t === "2") {
+		hideHeader();
+	} else if ( t === "3") {
+		hideHeader();
+	} else if ( t === "4") {
+		hideHeader();
+	}
+	window.g_down_type = parseInt(t);
+}
+function changeTag() {
+	judgeType();
+	$("header li").removeClass("active");
+	$("header li").eq(g_down_type).addClass("active");
+}
+function hideHeader() {
+	$("header").hide();
+}
+
+
+
+
+
+
+
+
 
 
 
