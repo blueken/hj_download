@@ -131,7 +131,31 @@ section.app .download a {
 	font-weight: bold;
 	letter-spacing: 1px;
 }
+a.arrow {
+	text-decoration: none;
+	width: 17px;
+	height: 30px;
+	display: block;
+}
+a.arrow:link, a.arrow:visited, a.arrow:active, a.arrow:hover {
+	color: #000;
+}
+.prev {
 
+	background: url(../img/larrow.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 33%;
+	left: 3%
+}
+.next {
+
+	background: url(../img/rarrow.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 33%;
+	left: 91%
+}
 #test li{
 	float: left;
 	width: 60px;
