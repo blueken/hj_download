@@ -1,8 +1,11 @@
+var g_menu_scroller;
+var g_app_scroller;
 $(function() {
 	initTag();
 	showAppInfo();
 	addHeaderTagLogic();
 	addArrowLogic();
+	autoHref();
 });
 
 $(window).bind("load", function() {
@@ -12,20 +15,33 @@ $(window).bind("load", function() {
 	// var ts1 = new HJ_TouchScroll("header ul", "header");
 	// ts1.setBoundary(true);
 
-	hmu.overSlide($("header ul"));
-
+	// hmu.overSlide($("header ul"));
+	
+	g_menu_scroller = new IScroll("#scroller", {
+		scrollX : true,
+		tap : true
+	});
+	g_app_scroller = new IScroll("#scroller2", {
+		scrollX : true
+	});
+	// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	g_app_scroller.disable();
 });
+function autoHref() {
+    if (/ipad|iphone|mac/i.test(navigator.userAgent)){
+        $(".download a").each(function() {
+			var ios_href = ($(this).attr("data-href"));
+			$(this).attr("href", ios_href);
+		});  
+    }	
+}
 function showAppInfo() {
-	judgeType();
-	// $(".app").addClass("hidden");
-	if (g_prev_type != g_curr_type) {
-		faceOut($(".app").eq(g_prev_type));
-		faceIn($(".app").eq(g_curr_type));
-	} else {
-		$(".app").eq(g_curr_type).removeClass("hidden");
-	}
+	judgeType();	
 	
-	
+	if (g_app_scroller) {
+		var el = $(".app").get(g_curr_type);
+		g_app_scroller.scrollToElement(el);
+	};
 	
 }
 function faceIn(jqobj) {
@@ -42,7 +58,7 @@ function faceOut(jqobj) {
 
 function addHeaderTagLogic() {
 	
-	$("header a").bind("click", function() {
+	$("header a").bind("tap", function() {
 		$("header li").removeClass("active");
 		$(this).parent().addClass("active");
 		var idx = $(this).parent().index();

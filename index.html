@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title>触屏版下载页</title>
 
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
@@ -14,6 +14,7 @@
 
     	<header>
     		<h1 class="hidden">沪江网校, CCTalk, 开心词场, 听力酷, 沪江小D</h1>
+            <div id="scroller" style="height:70px;">
     		<ul>
     			<li class="active"><a href="#"><span>沪江网校</span></a></li>
     			<li><a href="#"><span>CCTalk</span></a></li>
@@ -21,17 +22,21 @@
     			<li><a href="#"><span>听力酷</span></a></li>
     			<li><a href="#"><span>沪江小D</span></a></li>
     		</ul>
-    		
+    		</div>
     	</header>
+
     	<article class="content">
             <a class="arrow prev" href="#"></a>
             <a class="arrow next" href="#"></a>
     		<h1 class="hidden">详情介绍</h1>
-    		<section class="app hidden">
+
+            <div id="scroller2" style="width:100%; height:100%; overflow:hidden">
+            <div style="width:500%; height:100%">
+    		<section class="app hjwx">
     			<h3 class="hcenter">沪江网校</h3>
-    			<p class="hcenter desc">权威名师外语课程。</p>
+    			<p class="hcenter desc">权威名师外语课堂</p>
     			<p class="hcenter logo"><img src="img/0.png" /></p>
-    			<p class="hcenter download"><a href="">免费下载</a></p>
+    			<p class="hcenter download"><a href="http://app.m.hjfile.cn/android/hujiangclass3_allstar.apk" data-href="https://itunes.apple.com/cn/app/hu-jiang-wang-xiao-wai-yu/id738227542?mt=8">免费下载</a></p>
 
     			<div class="colorful">
 
@@ -39,50 +44,51 @@
     		</section>
 
 
-            <section class="app hidden">
+            <section class="app cctalk">
                 <h3 class="hcenter">CCTalk</h3>
-                <p class="hcenter desc">24小时免费公开课。</p>
+                <p class="hcenter desc">24小时免费公开课</p>
                 <p class="hcenter logo"><img src="img/1.png" /></p>
-                <p class="hcenter download"><a href="">免费下载</a></p>
+                <p class="hcenter download"><a href="http://app.m.hjfile.cn/android/cctalk_allstar.apk" data-href="https://itunes.apple.com/cn/app/cctalk/id843666882?mt=8">免费下载</a></p>
 
                 <div class="colorful">
 
                 </div>
             </section>
 
-            <section class="app hidden">
+            <section class="app kxcc">
                 <h3 class="hcenter">开心词场</h3>
-                <p class="hcenter desc">最有效的多语种背单词应用。</p>
+                <p class="hcenter desc">专业高效背单词工具</p>
                 <p class="hcenter logo"><img src="img/2.png" /></p>
-                <p class="hcenter download"><a href="">免费下载</a></p>
+                <p class="hcenter download"><a href="http://app.m.hjfile.cn/android/HJWordGame_allstar.apk" data-href="https://itunes.apple.com/cn/app/kai-xin-ci-chang-ting-li-yue/id635206028?mt=8">免费下载</a></p>
 
                 <div class="colorful">
 
                 </div>
             </section>
 
-            <section class="app hidden">
+            <section class="app tlk">
                 <h3 class="hcenter">听力酷</h3>
-                <p class="hcenter desc">多语种海量听力资源供您选择。</p>
+                <p class="hcenter desc">免费海量外语听力</p>
                 <p class="hcenter logo"><img src="img/3.png" /></p>
-                <p class="hcenter download"><a href="">免费下载</a></p>
+                <p class="hcenter download"><a href="http://app.m.hjfile.cn/android/tingliku_allstar.apk" data-href="https://itunes.apple.com/cn/app/hu-jiang-ting-li-ku-ying-yu/id561392074?mt=8">免费下载</a></p>
 
                 <div class="colorful">
 
                 </div>
             </section>
 
-            <section class="app hidden">
+            <section class="app hjxd">
                 <h3 class="hcenter">沪江小D</h3>
-                <p class="hcenter desc">免费多国语言版词典。</p>
+                <p class="hcenter desc">免费多国语言词典</p>
                 <p class="hcenter logo"><img src="img/4.png" /></p>
-                <p class="hcenter download"><a href="">免费下载</a></p>
+                <p class="hcenter download"><a href="http://app.m.hjfile.cn/android/hjdict_allstar.apk" data-href="https://itunes.apple.com/cn/app/hu-jiang-xiaod-ci-dian-zui/id481584414?mt=8">免费下载</a></p>
 
                 <div class="colorful">
 
                 </div>
             </section>
-
+            </div>
+            </div>
     	</article>
 
     </body>
@@ -90,6 +96,10 @@
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/prefixfree.min.js"></script>
     
-    <script type="text/javascript" src="js/hmu.js"></script>
+    <!--script type="text/javascript" src="js/hmu.js"></script-->
+    <script type="text/javascript" src="js/iscroll.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    
+    </script>
 </html>

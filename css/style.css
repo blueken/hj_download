@@ -29,7 +29,7 @@ header {
 header ul {
 	
 	width: 400px;
-	height: 100%;
+	height: 70px;
 	margin: 0 auto;
 	/*overflow: hidden;*/
 	/*background-color: gold;*/
@@ -55,7 +55,7 @@ header a span {
 	font-size: 14px;
 	width: 40px;
 	line-height: 17px;
-	overflow: hidden;
+	
 	display: inline-block;
 }
 header .active a {
@@ -77,21 +77,51 @@ header a, header a:link, header a:visited, header a:active, header a:hover {
 	top: 10%;
 }
 section.app {
-	position: absolute;
+	position: relative;
 	top: 0;
-	width: 100%;
+	width: 20%;
 	height: 100%;
+	/*background-color: gold;*/
+	float: left;
 }
 
 section.app .colorful {
 	width: 100%;
 	height: 45%; /*400/906*/
-	background-color: #15abf9;
 	position: absolute;
 	bottom: 0;
 	z-index: -1;
 }
-
+.hjxd .colorful{
+	background-color: #3581c2;
+}
+.tlk .colorful{
+	background-color: #11a0f2;
+}
+.kxcc .colorful{
+	background-color: #0f70ca;
+}
+.cctalk .colorful{
+	background-color: #15abf9;
+}
+.hjwx .colorful{
+	background-color: #66cc00;
+}
+.hjxd .download{
+	background-color: #27b4f5;
+}
+.tlk .download{
+	background-color: #3cbafd;
+}
+.kxcc .download{
+	background-color: #1e92e4;
+}
+.cctalk .download{
+	background-color: #59ceff;
+}
+.hjwx .download{
+	background-color: #80ea31;
+}
 .hcenter {
 	position: relative;
 	left: 50%;
@@ -125,7 +155,7 @@ section.app .logo img {
 section.app .download {
 	position: absolute;
 	bottom: 16.7%;
-	background-color: #59ceff;
+	
 	border-radius: 5px;
 	width:205px;
 	height:45px;
