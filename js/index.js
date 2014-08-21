@@ -6,6 +6,15 @@ $(function() {
 	addHeaderTagLogic();
 	addArrowLogic();
 	autoHref();
+
+	$(window).bind("orientationchange",function() {
+
+		setTimeout(function() {
+			var left = -1 * g_curr_type * $(window).width();
+			g_app_scroller.scrollTo(left, 0, 360, null);
+		}, 600);
+
+	});
 });
 
 $(window).bind("load", function() {

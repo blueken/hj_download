@@ -1,29 +1,74 @@
 section.app h3 {
 	font-size: 1.4rem;
 	position: absolute;
-	bottom: 25%;
-	left: 20%;
+	bottom: 22%;
+	left: 23%;
 }
 section.app .desc {
 	width: 100%;
 	text-align: center;
 	position: absolute;
 	font-size: 0.85rem;
-	bottom: 16.7%;
-	left: 20%;
+	bottom: 13%;
+	left: 23%;
 
 }
 section.app .logo {
 	position: absolute;
 	bottom: 50%;
-	/*left: 50%;*/
-	/*margin-left: -50px;*/
 }
-
+section.app .download {
+	left: 67%;
+	bottom: 13%;
+}
 
 @media screen and (min-width: 600px) {
 	html {
+		font-size: 120%;
+	}
+
+	section.app .logo img {
+		width: 120px;
+		height: 120px;
+	}
+	section.app .download {
+		left: 70%;
+		bottom: 13%;
+		border-radius: 5px;
+		width:300px;
+		height:70px;
+	}
+	section.app .download a {
+		width:300px;
+		height:70px;
+		line-height: 70px;
+	}
+}
+@media screen and (min-width: 900px) {
+	html {
 		font-size: 200%;
+	}
+
+	section.app .logo img {
+		width: 175px;
+		height: 175px;
+	}
+	section.app .download {
+		left: 70%;
+		bottom: 13%;
+		border-radius: 5px;
+		width:400px;
+		height:90px;
+	}
+	section.app .download a {
+		width:400px;
+		height:90px;
+		line-height: 90px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	html {
+		font-size: 300%;
 	}
 
 	section.app .logo img {
@@ -32,21 +77,14 @@ section.app .logo {
 	}
 	section.app .download {
 		left: 70%;
-		bottom: 16.7%;
-		background-color: #59ceff;
+		bottom: 13%;
 		border-radius: 5px;
-		width:410px;
-		height:90px;
+		width:500px;
+		height:112px;
 	}
 	section.app .download a {
-		width:410px;
-		height:90px;
-		line-height: 90px;
+		width:500px;
+		height:112px;
+		line-height: 112px;
 	}
 }
-/*@media (min-width: 240px) {
-section.app .desc {
-		color: red;
-
-	}
-}*/
